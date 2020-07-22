@@ -21,6 +21,8 @@
         <div class="title m-b-md">
             Laravel
         </div>
+        <p class="mssg">{{ session('mssg') }}</p>
+        <a href="{{ route('pizzas.create') }}">Order a Pizza</a>
     </div>
 </div>
 @endsection

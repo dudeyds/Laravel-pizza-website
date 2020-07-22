@@ -16,7 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/pizzas', 'PizzaController@index')->middleware('auth'); the original way
+Route::get('/pizzas', 'PizzaController@index')->name('pizzas.index')->middleware('auth'); // individual auth for each route, better method in the pizza controller
+Route::get('/pizzas/create', 'PizzaController@create')->name('pizzas.create'); // ranked in order of preference, if it was below ID this page would never show
+Route::post('/pizzas', 'PizzaController@store')->name('pizzas.store');
+Route::get('/pizzas/{id}', 'PizzaController@show')->name('pizzas.show');
+Route::delete('/pizzas/{id}','PizzaController@destroy')->name('pizzas.destroy');
 
-Route::get('/pizzas', 'PizzaController@index');
 
-Route::get('/pizzas/{id}', 'PizzaController@show');
+
+Auth::routes([
+    'register' => false
+]);
+
+Route::get('/home', 'HomeController@index')->name('home');
