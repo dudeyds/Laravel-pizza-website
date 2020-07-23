@@ -5,11 +5,11 @@
     <form action="/pizzas" method="POST">
     @csrf
         <label for="name">Your name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" required>
         <label for="type">Choose pizza type:</label>
         <select name="type" id="type">
             <option value="margherita">Margherita</option>
-            <option value="hawaiian">Margherita</option>
+            <option value="hawaiian">Hawaiian</option>
             <option value="veg supreme"> Veg Supreme</option>
             <option value="volcano">Volcano</option>
         </select>

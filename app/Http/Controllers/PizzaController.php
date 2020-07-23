@@ -40,7 +40,12 @@ class PizzaController extends Controller
         $pizza->type = request('type');
         $pizza->base = request('base');
         $pizza->price = 10; //default value for now, maybe we can make a pricelist, different pizzas havec different prices?
-        $pizza->toppings = request('toppings');
+        if(request('toppings') != null) {
+            $pizza->toppings = request('toppings');
+        } else {
+            $pizza->toppings = ['none'];
+        }
+        
         //error_log($pizza);
         //return request('toppings');
 
